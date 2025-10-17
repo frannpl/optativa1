@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.daw.daw_task.persistence.entities.Tarea;
@@ -96,4 +97,30 @@ public class TareaController {
 	public ResponseEntity<?> completadas(){
 		return ResponseEntity.ok(this.tareaService.completadas());
 	}
+	
+    @GetMapping("/vencidas")
+    public ResponseEntity<?> vencidas() {
+        return ResponseEntity.ok(this.tareaService.vencidas());
+    }
+
+    @GetMapping("/no-vencidas")
+    public ResponseEntity<?> noVencidas() {
+        return ResponseEntity.ok(this.tareaService.noVencidas());
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<?> buscarPorTitulo(@PathVariable String titulo) {
+        return ResponseEntity.ok(this.tareaService.buscarPorTitulo(titulo));
+    }
+
+    @PutMapping("/{id}/completar")
+    public ResponseEntity<?> completar(@PathVariable int id) {
+        return ResponseEntity.ok(this.tareaService.completar(id));
+    }
+
+    @PutMapping("/{id}/en-progreso")
+    public ResponseEntity<?> marcarEnProgreso(@PathVariable int id) {
+        return ResponseEntity.ok(this.tareaService.marcarEnProgreso(id));
+    }
 }
+

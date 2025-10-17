@@ -114,6 +114,34 @@ public class TareaService {
 	
 //	Obtener las tareas vencidas.
 	public List<Tarea> vencidas(){
-		return ;
+		return this.tareaRepository.findByFechaVencimientoBefore(LocalDate.now());
 	}
+	
+// 	Obtener las tareas no vnecida
+	public List<Tarea> noVencidas(){
+		return this.tareaRepository.findByFechaVencimientoAfter(LocalDate.now());
+	}
+	
+// 	Obtener tarea por titulo
+	public List<Tarea> buscarPorTitulo(String titulo){
+		if(titulo == null || titulo.trim().isEmpty()) {
+			throw new TareaException("El titulo de busqueda no puede estar vacio");
+		}
+		
+		return this.tareaRepository.findByTituloContainingIgnoreCase(titulo.trim());
+	}
+	
+// 	Completar una tarea
+	public Tarea completar(int idTarea) {
+	    Tarea tarea = this.findById(idTarea);
+
+	    if (!tarea.getEstado().equals(Estado.EN_PROGRESO)) {
+	        throw new TareaException("Solo se pueden completar tareas que estén en progreso.");
+	    }
+
+	    tarea.setEstado(Estado.COMPLETADA);
+
+	    return this.tareaRepository.save(tarea);
+	}
+
 }
