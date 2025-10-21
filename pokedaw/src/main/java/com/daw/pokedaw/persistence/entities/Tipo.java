@@ -1,0 +1,7 @@
+package com.daw.pokedaw.persistence.entities;
+
+public enum Tipo {
+
+	BICHO,DRAGRON,ELECTRICO,LUCHA,FUEGO,VOLADOR,FANTASMA,
+	PLANTA,TIERRA,HIELO,NORMAL,VENENO,PSIQUICO,ROCA,AGUA
+}
