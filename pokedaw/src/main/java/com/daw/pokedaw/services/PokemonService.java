@@ -28,6 +28,17 @@ public class PokemonService {
 		}
 		return this.pokemonRepository.findById(idPokemon).get();
 	}
+
+//	public Pokemon create(Pokemon pokemon) {
+//		
+//		if(pokemon == null) {
+//			throw new IllegalArgumentException("El Pokemon no puede ser nulo");
+//		}
+//		if(pokemon.getNombre() == null || pokemon.getNombre().isEmpty()) {
+//			throw new PokemonException("El nombgre del Pokemon es obligatorio");
+//		}
+//		return null;
+//	}
 	
 	
 }

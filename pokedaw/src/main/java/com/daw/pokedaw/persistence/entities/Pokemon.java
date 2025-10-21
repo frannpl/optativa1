@@ -1,6 +1,7 @@
 package com.daw.pokedaw.persistence.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
@@ -39,5 +40,7 @@ public class Pokemon {
 	
 	@Enumerated(value = EnumType.STRING)
 	private Pokeball capturado;
+
+	
 	
 }
