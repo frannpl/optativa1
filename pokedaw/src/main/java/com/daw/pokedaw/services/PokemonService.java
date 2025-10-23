@@ -70,6 +70,27 @@ public class PokemonService {
 
 	    return this.pokemonRepository.save(pokemonDB);
 	}
+	
+	// Eliminar pokemon
+	public void delete(int idPokemon) {
+		
+		if(!this.pokemonRepository.existsById(idPokemon)) {
+			throw new PokemonNotFoundException("La tarea no existe");
+		}
+			
+		this.pokemonRepository.deleteById(idPokemon);
+		
+	}
+	
+	
+	// Buscar pokemon segun nº pokedex
+	public Pokemon findByNumeroPokedex(int numeroPokedex) {
+		if(!this.pokemonRepository.existsByNumeroPokedex(numeroPokedex)) {
+			throw new PokemonNotFoundException("El Pokemon con número de Pokedex " + numeroPokedex);
+		}
+		
+		return this.pokemonRepository.findByNumeroPokedex(numeroPokedex).get(0);
+	}
 
 	
 	
