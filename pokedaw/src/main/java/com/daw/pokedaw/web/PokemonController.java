@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,13 +25,14 @@ import com.daw.pokedaw.persistence.entities.Pokemon;
 import com.daw.pokedaw.persistence.entities.Tipo;
 
 @RestController
+@RequestMapping("/pokemon")
 public class PokemonController {
 
 	@Autowired
 	private PokemonService pokemonService;
 
 	// Obtener todos los pokemon
-	@GetMapping("/pokemon")
+	@GetMapping("/pokemons")
 	public List<Pokemon> getAllPokemon() {
 		return pokemonService.findAll();
 	}
@@ -102,6 +104,7 @@ public class PokemonController {
 	}
 	
 	// Buscar por tipo de pokemon
+	@GetMapping("/tipo/{tipo}")
 	public ResponseEntity<List<Pokemon>> getByTipo(@PathVariable Tipo tipo){
 		List<Pokemon> pokemons = pokemonService.findByTipo(tipo);
 		return ResponseEntity.ok(pokemons);
@@ -109,6 +112,7 @@ public class PokemonController {
 	
 	
 	// Cambiar el tipo de un Pokemon
+	@PutMapping("/{id}/tipo")
 	public ResponseEntity<Pokemon> cambiarTipo(
 			@PathVariable int id,
 			@RequestParam Tipo nuevoTipo,

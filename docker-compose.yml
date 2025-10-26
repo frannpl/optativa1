@@ -1,31 +1,32 @@
 version: "3.8"
+
 services:
-  db:
+  db-pokedaw:
     image: mariadb:10.3
+    container_name: db-pokedaw
     environment:
       MYSQL_ROOT_PASSWORD: secreta
-      MYSQL_DATABASE: daw
+      MYSQL_DATABASE: pokedaw
       MYSQL_USER: admin
       MYSQL_PASSWORD: secreta
     ports:
-      - "3316:3306"
+      - "3317:3306"
     volumes:
-      - dbdata:/var/lib/mysql/data
+      - dbdata-pokedaw:/var/lib/mysql
     restart: always
-  phpmyadmin:
+
+  phpmyadmin-pokedaw:
     image: phpmyadmin/phpmyadmin
-    links:
-      - db
+    container_name: phpmyadmin-pokedaw
     environment:
-      PMA_HOST: db
+      PMA_HOST: db-pokedaw
       PMA_PORT: 3306
-      PMA_ARBITRARY: 1
       MYSQL_ROOT_PASSWORD: secreta
-    restart: always
     ports:
-      - 8091:80
+      - "8092:80"
     depends_on:
-      - db
+      - db-pokedaw
+    restart: always
+
 volumes:
-  dbdata:
-  
+  dbdata-pokedaw:

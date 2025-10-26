@@ -13,8 +13,8 @@ public interface PokemonRepository extends ListCrudRepository<Pokemon, Integer>{
 	List<Pokemon> findByNumeroPokedex(int numeroPokedex);
 	boolean existsByNumeroPokedex(int numeroPokedex);
 	
-	List<Pokemon> findByDate(LocalDate desde, LocalDate hasta);
+	List<Pokemon> findByFechaCapturaBetween(LocalDate desde, LocalDate hasta);
 	
-    List<Pokemon> findByTipo1Tipo2(Tipo tipo1, Tipo tipo2);
+    List<Pokemon> findByTipo1OrTipo2(Tipo tipo1, Tipo tipo2);
 
 }

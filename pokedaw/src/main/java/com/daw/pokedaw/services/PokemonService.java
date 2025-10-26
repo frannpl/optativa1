@@ -103,11 +103,11 @@ public class PokemonService {
             throw new PokemonException("La fecha 'desde' no puede ser posterior a 'hasta'.");
         }
 
-        return this.pokemonRepository.findByDate(desde, hasta);
+        return this.pokemonRepository.findByFechaCapturaBetween(desde, hasta);
     }
 
     public List<Pokemon> findByTipo(Tipo tipo) {
-        List<Pokemon> lista = pokemonRepository.findByTipo1Tipo2(tipo, tipo);
+        List<Pokemon> lista = pokemonRepository.findByTipo1OrTipo2(tipo, tipo);
 
         if (lista.isEmpty()) {
             throw new PokemonNotFoundException("No se han encontrado Pokémon del tipo " + tipo);
