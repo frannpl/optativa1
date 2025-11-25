@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "d7b4a0d9-dc26-4957-8b92-8b6174de12bd",
+		"name": "examenFJLP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43644355"
+	},
+	"item": [
+		{
+			"name": "/registros",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/registros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"registros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/idRegistro",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \r\n        \"ubicacion\": \"Sevilla\",\r\n        \"temperatura\": 10.5,\r\n        \"unidad\": \"CELSIUS\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/registros/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"registros",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/idRegistro/precipitacion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8099/registros/1/precipitacion?anterior=1.5&nueva=0.0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"registros",
+						"1",
+						"precipitacion"
+					],
+					"query": [
+						{
+							"key": "anterior",
+							"value": "1.5"
+						},
+						{
+							"key": "nueva",
+							"value": "0.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/registros/probar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8099/registros/buscar?ubicacion=Sevilla&inicio=2025-01-01&fin=2025-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8099",
+					"path": [
+						"registros",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "ubicacion",
+							"value": "Sevilla"
+						},
+						{
+							"key": "inicio",
+							"value": "2025-01-01"
+						},
+						{
+							"key": "fin",
+							"value": "2025-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

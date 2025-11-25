@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "62519202-6560-418d-9141-dec6af7ec560",
+		"name": "pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43644355"
+	},
+	"item": [
+		{
+			"name": "/pokemon",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/pokemon/pokemons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"pokemons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/pokemon/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"numeroPokedex\": 92,\r\n  \"nombre\": \"Gastly\",\r\n  \"tipo1\": \"FANTASMA\",\r\n  \"tipo2\": \"VENENO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/pokemon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 11,\r\n    \"numeroPokedex\": 92,\r\n    \"nombre\": \"Pepito\",\r\n    \"tipo1\": \"FANTASMA\",\r\n    \"tipo2\": \"VENENO\",\r\n    \"fechaCaptura\": \"2025-10-26\",\r\n    \"capturado\": \"POKEBALL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/pokemon/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 11,\r\n    \"numeroPokedex\": 92,\r\n    \"nombre\": \"Pepito\",\r\n    \"tipo1\": \"FANTASMA\",\r\n    \"tipo2\": \"VENENO\",\r\n    \"fechaCaptura\": \"2025-10-26\",\r\n    \"capturado\": \"POKEBALL\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/pokemon/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pokedex",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/pokemon/pokedex/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"pokedex",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rangoFecha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/pokemon/capturados?inicio=2025-03-10&fin=2025-04-22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"capturados"
+					],
+					"query": [
+						{
+							"key": "inicio",
+							"value": "2025-03-10"
+						},
+						{
+							"key": "fin",
+							"value": "2025-04-22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscarTipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/pokemon/tipo/NORMAL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"tipo",
+						"NORMAL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cambiarTipo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/pokemon/9/tipo?nuevoTipo=ROCA&slot=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"pokemon",
+						"9",
+						"tipo"
+					],
+					"query": [
+						{
+							"key": "nuevoTipo",
+							"value": "ROCA"
+						},
+						{
+							"key": "slot",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
